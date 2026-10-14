@@ -17,8 +17,62 @@ s.anonymous = false
 -- ==========================================
 -- VIRTUAL FIELD: Nama Profile
 -- ==========================================
+
 name = s:option(Value, "alias", "Nama Profile :")
 name.rmempty = false
+
+-- Larang koma pada nama profil
+name.validate = function(self, value)
+    if value and value:find(",", 1, true) then
+        return nil, "Nama profil tidak boleh mengandung koma (,). Gunakan tanda - atau _ sebagai pengganti."
+    end
+
+    return value
+end
+
+
+-- Hapus koma dari input nama profil secara langsung
+name.description = [[
+<script>
+(function() {
+    function setupAliasInput() {
+        var input = document.querySelector(
+            'input[name^="cbid.passwall-ssh."][name$=".alias"]'
+        );
+
+        if (!input || input.dataset.noCommaBound === "1")
+            return;
+
+        input.dataset.noCommaBound = "1";
+
+        input.addEventListener("keydown", function(e) {
+            if (e.key === "," || e.code === "Comma") {
+                e.preventDefault();
+            }
+        });
+
+        // Menangani paste atau input yang mengandung koma
+        input.addEventListener("input", function() {
+            var pos = this.selectionStart;
+            var before = this.value.slice(0, pos);
+
+            if (this.value.indexOf(",") !== -1) {
+                this.value = this.value.replace(/,/g, "");
+
+                var newPos = before.replace(/,/g, "").length;
+                this.setSelectionRange(newPos, newPos);
+            }
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", setupAliasInput);
+    } else {
+        setupAliasInput();
+    }
+})();
+</script>
+]]
 
 -- ==========================================
 -- FIELD KONEKSI UTAMA
