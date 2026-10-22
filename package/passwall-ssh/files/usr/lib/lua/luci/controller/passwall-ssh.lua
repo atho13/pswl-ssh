@@ -1,7 +1,7 @@
 module("luci.controller.passwall-ssh", package.seeall)
 
 function index()
-    entry({"admin", "services", "passwall-ssh"}, cbi("passwall-ssh/main"), "Passwall-SSH", 60)
+    entry({"admin", "services", "passwall-ssh"}, cbi("passwall-ssh/main"), "S S H", 60)
     entry({"admin", "services", "passwall-ssh", "edit"}, cbi("passwall-ssh/edit"), nil).leaf = true
     entry({"admin", "services", "passwall-ssh", "check_ip"}, call("action_check_ip")).leaf = true
     entry({"admin", "services", "passwall-ssh", "check_conn"}, call("action_check_conn"))
