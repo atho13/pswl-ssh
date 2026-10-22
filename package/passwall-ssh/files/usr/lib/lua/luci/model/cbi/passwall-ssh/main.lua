@@ -235,7 +235,7 @@ header_ui.cfgvalue = function()
                 <li id="tab_main" class="active"><a href="javascript:void(0)" onclick="switchTab('main')">Main</a></li>
                 <li id="tab_dns"><a href="javascript:void(0)" onclick="switchTab('dns')">DNS</a></li>
                 <li id="tab_config"><a href="javascript:void(0)" onclick="switchTab('config')">Profile</a></li>
-                <li id="tab_update"><a href="javascript:void(0)" onclick="switchTab('update')">App Update</a></li>
+                <!-- <li id="tab_update"><a href="javascript:void(0)" onclick="switchTab('update')">App Update</a></li> -->
                 <li id="tab_log"><a href="javascript:void(0)" onclick="switchTab('log')">Log</a></li>
             </ul>
         </div>
