@@ -7,7 +7,7 @@ local config_name = arg[1] or ""
 local uci = require("luci.model.uci").cursor()
 local current_alias = uci:get("passwall-ssh", config_name, "alias") or config_name
 
-m = Map("passwall-ssh", "EDIT PROFILE", "Detail Konfigurasi untuk Profil: <b>" .. current_alias .. "</b>")
+m = Map("passwall-ssh", "", "<strong>Detail Konfigurasi untuk Profil: <b>" .. current_alias .. "</b>")
 m.redirect = dsp.build_url("admin", "services", "passwall-ssh")
 
 s = m:section(NamedSection, config_name, "profile", "")
