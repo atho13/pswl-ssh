@@ -136,6 +136,4 @@ apk add --allow-untrusted /tmp/passwall-ssh_25_*.apk
 
 ## ❤️ Thanks To
 
-- ambrop72 (BadVPN)
-- ChatGPT
-- Gemini
+- 🔥 avidemx 🔥
